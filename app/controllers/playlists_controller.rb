@@ -15,7 +15,6 @@ class PlaylistsController < ApplicationController
   # GET /playlists/new
   def new
     @playlist = Playlist.new
-    @Users = User.all
   end
 
   # GET /playlists/1/edit

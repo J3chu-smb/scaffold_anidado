@@ -10,7 +10,7 @@
   <%= @playlist.user.name %>
 </p>
 
-<%= form_with(model: Song.new, url: playlist_songs_path(@playlist), local: true) do |f| %>
+<%= form_with(model: [@playlist, Song.new], local: true) do |f| %>
 <div class="field">
   <%= f.label :song %>
   <%= f.text_field :name %>
@@ -28,10 +28,10 @@
 <% @playlist.songs.each do |song| %>
 <li><%= song.name %></li>
 <li><%= song.artist %></li>
-<li><%= link_to 'Destroy', playlist_delete_song_path(@playlist, song), method: :delete, data: { confirm: 'La canción se ha eliminado con éxito!' } %></li>
+<li><%= link_to 'Destroy', playlist_delete_song_path(@playlist, song), method: :delete, data: { confirm: 'La canción se ha eliminado con éxito!' }, class:'btn btn-sm btn-outline' %></li>
 <br>
 <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_playlist_path(@playlist) %> |
-<%= link_to 'Back', playlists_path %>
+<%= link_to 'Edit', edit_playlist_path(@playlist), class:'btn btn-sm btn-outline' %> |
+<%= link_to 'Back', playlists_path, class:'btn btn-sm btn-outline' %>

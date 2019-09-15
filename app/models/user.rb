@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :playlist
-    validates :name,  presence: true
-    validates :email, presence: true, uniqueness: true
+    has_many :playlists
+    validates_presence_of :name
+    validates_presence_of :email, uniqueness: true
 end
